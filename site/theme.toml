@@ -1,0 +1,12 @@
+name = "zoladocs"
+description = "A Zola documentation there"
+license = "MIT"
+homepage = "https://github.com/nsg/zoladocs"
+min_version = "0.17.2"
+demo = ""
+
+[extra]
+
+[author]
+name = "Stefan Berggren"
+homepage = "https://github.com/nsg"
