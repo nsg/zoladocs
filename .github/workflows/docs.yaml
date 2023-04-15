@@ -36,7 +36,7 @@ jobs:
       - name: Build site
         run: |
           cd site
-          zola build
+          zola build --base-url "https://nsg.github.io/zoladocs/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
