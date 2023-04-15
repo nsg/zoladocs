@@ -14,7 +14,7 @@
             {% for level1_sec in root_section.subsections %}
                 {% set page_section = get_section(path=level1_sec) %}
                 <div>
-                    <h3><a href="{{ page_section.path }}">{{ page_section.title }}</a></h3>
+                    <h3><a href="{{ get_url(path=page_section.path) }}">{{ page_section.title }}</a></h3>
                     <p>
                         {{ page_section.description | markdown | safe }}
                     </p>
