@@ -81,7 +81,7 @@ header {
     }
 }
 
-main {
+main.section {
     display: grid;
     grid-template-columns: 12em 1fr;
 
@@ -107,7 +107,7 @@ main {
     }
 }
 
-.title {
+div.title {
     background:
         linear-gradient(45deg, var(--color-secondary) 10%, transparent 10%),
         linear-gradient(45deg, var(--color-tertiary) 90%, var(--color-primary) 90%);
@@ -122,7 +122,7 @@ main {
     }
 }
 
-.title-section {
+div.title-section {
     background: var(--color-shaded2);
 
     h1 {
@@ -131,32 +131,29 @@ main {
     }
 }
 
-.hero {
+article.hero {
     background-color: var(--color-primary);
     color: var(--color-tertiary);
     font-size: 1.4em;
+    text-align: justify;
     padding: 2.2em 1.8em;
-
+    
     strong {
         color: var(--color-splash);
     }
-
+    
     p {
         margin: 0.2em;
     }
 }
 
-.hero-section {
-    padding: 1em;
-    font-size: 1.2em;
-}
-
-.boxes {
+article.boxes {
     margin-top: 1.4em;
+    padding: 0 2em;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
-    grid-column-gap: 2rem;
+    grid-column-gap: 3rem;
     grid-row-gap: 1rem;
 
     div {

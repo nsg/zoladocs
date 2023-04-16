@@ -2,7 +2,7 @@
 {% block title %} {{ section.title }} | {{ config.title }} {% endblock title %}
 {% block docpage %}
     {% set current_path = section.path %}
-    <div>
+    <main class="index">
         <div class="title">
             <h1>{{ section.title }}</h1>
         </div>
@@ -21,5 +21,5 @@
                 </div>
             {% endfor %}
         </article>
-    </div>
+    </main>
 {% endblock docpage %}
