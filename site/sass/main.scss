@@ -112,6 +112,15 @@ main.section {
             }
         }
     }
+
+    pre {
+        padding: 1em;
+    }
+
+    p code {
+        padding: 0.2em 0.6em;
+        background-color: var(--color-shaded2);
+    }
 }
 
 div.title {
