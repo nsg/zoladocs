@@ -11,6 +11,9 @@ body {
     --color-contrast: #d8d8d8;
     --color-shaded1: #bdbdc0;
     --color-shaded2: #e8e8e9;
+
+    --page-max-width: 80rem;
+    --text-max-width: 50rem;
 }
 
 header {
@@ -84,6 +87,8 @@ header {
 main.section {
     display: grid;
     grid-template-columns: 12em 1fr;
+    max-width: var(--page-max-width);
+    margin: auto;
 
     nav {
         border-right: 0.2em solid var(--color-primary);
@@ -97,6 +102,8 @@ main.section {
     }
 
     article {
+        max-width: var(--text-max-width);
+
         h1 {
             background-color: red;
 
@@ -111,6 +118,8 @@ div.title {
     background:
         linear-gradient(45deg, var(--color-secondary) 10%, transparent 10%),
         linear-gradient(45deg, var(--color-tertiary) 90%, var(--color-primary) 90%);
+    max-width: var(--page-max-width);
+    margin: auto;
 
     h1 {
         font-size: 4rem;
@@ -136,7 +145,9 @@ article.hero {
     color: var(--color-tertiary);
     font-size: 1.4em;
     text-align: justify;
+    max-width: calc(var(--page-max-width) - 3.6em);
     padding: 2.2em 1.8em;
+    margin: auto;
     
     strong {
         color: var(--color-splash);
@@ -149,7 +160,9 @@ article.hero {
 
 article.boxes {
     margin-top: 1.4em;
-    padding: 0 2em;
+    max-width: calc(var(--page-max-width) - 4em);
+    padding: 2em 2em;
+    margin: auto;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
