@@ -4,9 +4,14 @@
 <div class="title title-section">
     <h1>{{ section.title }}</h1>
 </div>
+<article class="breadcrumb">
+    <a href="{{ get_url(path="/") }}">Start</a> »
+    <a href="{{ get_url(path=section.path) }}">{{ section.title }}</a>
+</article>
 <main class="section">
     <nav>
         <ul>
+            <li><a href="{{ get_url(path=section.path) }}">{{ section.title }}</a></li>
             {% for page in section.pages %}
                 <li><a href="{{ get_url(path=page.path) }}">{{ page.title }}</a></li>
             {% endfor %}

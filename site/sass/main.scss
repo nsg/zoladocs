@@ -14,6 +14,7 @@ body {
 
     --page-max-width: 80rem;
     --text-max-width: 50rem;
+    --nav-width: 12em;
 }
 
 header {
@@ -86,18 +87,28 @@ header {
 
 main.section {
     display: grid;
-    grid-template-columns: 12em 1fr;
+    grid-template-columns: var(--nav-width) 1fr;
     max-width: var(--page-max-width);
     margin: auto;
 
     nav {
-        border-right: 0.2em solid var(--color-primary);
         margin-right: 1rem;
 
         ul {
             list-style-type: none;
             margin: 0;
-            padding: 1em;
+            padding: 1em 2em;
+
+            li {
+                a {
+                    color: var(--color-primary);
+                    text-decoration: none;
+
+                    &:hover {
+                        color: var(--color-secondary);
+                    }
+                }
+            }
         }
     }
 
@@ -142,6 +153,7 @@ div.title {
 
 div.title-section {
     background: var(--color-shaded2);
+    border-bottom: 1px solid var(--color-shaded1);
 
     h1 {
         padding: 0.6em;
@@ -189,5 +201,15 @@ article.boxes {
                 color: var(--color-secondary);
             }
         }
+    }
+}
+
+article.breadcrumb {
+    margin: 0.4em 0 0 var(--nav-width);
+
+    a {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: bold;
     }
 }
