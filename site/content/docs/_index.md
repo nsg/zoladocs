@@ -14,3 +14,23 @@ content/_index.md
 ```
 
 The start page / landing page is mostly generated from the documentations structure. This file contains a few manually specified values.
+
+## A TOC
+
+This section is here do render a nested TOC
+
+### Chapter 1
+
+hello
+
+### Chapter 2
+
+foo
+
+#### A Section
+
+4 levels deep is not rendered inside the TOC
+
+### Chapter 3
+
+there!

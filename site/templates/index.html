@@ -1,25 +1,23 @@
 {% extends "base.html" %}
+
+{% set current_path = section.path %}
+
 {% block title %} {{ section.title }} | {{ config.title }} {% endblock title %}
+
 {% block docpage %}
-    {% set current_path = section.path %}
-    <main class="index">
-        <div class="title">
-            <h1>{{ section.title }}</h1>
+    <div class="hero">
+        {{ section.content | safe }}
+    </div>
+    <div class="boxes">
+        {% set root_section = get_section(path="_index.md") %}
+        {% for level1_sec in root_section.subsections %}
+        {% set page_section = get_section(path=level1_sec) %}
+        <div>
+            <h3><a href="{{ get_url(path=page_section.path) }}">{{ page_section.title }}</a></h3>
+            <p>
+                {{ page_section.description | markdown | safe }}
+            </p>
         </div>
-        <article class="hero">
-            {{ section.content | safe }}
-        </article>
-        <article class="boxes">
-            {% set root_section = get_section(path="_index.md") %}
-            {% for level1_sec in root_section.subsections %}
-                {% set page_section = get_section(path=level1_sec) %}
-                <div>
-                    <h3><a href="{{ get_url(path=page_section.path) }}">{{ page_section.title }}</a></h3>
-                    <p>
-                        {{ page_section.description | markdown | safe }}
-                    </p>
-                </div>
-            {% endfor %}
-        </article>
-    </main>
+        {% endfor %}
+    </div>
 {% endblock docpage %}

@@ -1,24 +1,33 @@
 {% extends "base.html" %}
 {% block title %} {{ section.title }} | {{ config.title }} {% endblock title %}
 {% block docpage %}
-<div class="title title-section">
-    <h1>{{ section.title }}</h1>
-</div>
-<article class="breadcrumb">
-    <a href="{{ get_url(path="/") }}">Start</a> »
-    <a href="{{ get_url(path=section.path) }}">{{ section.title }}</a>
-</article>
-<main class="section">
-    <nav>
-        <ul>
-            <li><a href="{{ get_url(path=section.path) }}">{{ section.title }}</a></li>
-            {% for page in section.pages %}
-                <li><a href="{{ get_url(path=page.path) }}">{{ page.title }}</a></li>
-            {% endfor %}
-        </ul>
-    </nav>
     <article>
-        {{ section.content | safe }}
+        <nav>
+            <ul>
+                {% for page in section.pages %}
+                    <li><a href="{{ get_url(path=page.path) }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <section class="main">
+            <h1>{{ section.title }}</h1>
+            {{ section.content | safe }}
+        </section>
+        <section class="toc">
+            {% if section.toc %}
+                <ul>
+                    {% for li in section.toc %}
+                        <li><a href="{{ li.permalink | safe }}">{{ li.title }}</a>
+                            {% if li.children %}
+                                <ul>
+                                    {% for li2 in li.children %}
+                                        <li><a href="{{ li2.permalink | safe }}">{{ li2.title }}</a>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
     </article>
-</main>
 {% endblock docpage %}
